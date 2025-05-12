@@ -1,0 +1,30 @@
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #2D2D2D;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #777;
+}
+
+/* Ensure content isn't hidden behind fixed nav when it's open */
+body.nav-open main {
+    margin-left: 310px; /* 250px (nav width) + 60px (icon bar) */
+}
+
+.meal-item .meal-overlay {
+    transform: translateY(100%);
+    transition: transform 0.5s ease-in-out;
+}
+
+.meal-item:hover .meal-overlay {
+    transform: translateY(0);
+}

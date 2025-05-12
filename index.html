@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yummy</title>
+    <link rel="icon" href="images/logo.png"> <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navbg: '#0D0D0D',
+                        navhover: '#1A1A1A',
+                        cardoverlay: 'rgba(255, 255, 255, 0.7)',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-navbg text-white">
+
+    <div id="loadingScreen" class="fixed inset-0 bg-navbg z-[9999] flex justify-center items-center">
+        <i class="fas fa-spinner fa-spin fa-5x text-white"></i>
+    </div>
+
+    <nav class="fixed top-0 left-[-250px] h-full bg-navbg z-[999] transition-all duration-700 ease-in-out flex">
+        <div class="w-[250px] bg-black h-full p-6 flex flex-col justify-between text-center">
+            <div class="flex flex-col space-y-3">
+                <a href="#" id="navSearch" class="nav-link py-2 text-white hover:text-red-500 transition-colors duration-300">Search</a>
+                <a href="#" id="navCategories" class="nav-link py-2 text-white hover:text-red-500 transition-colors duration-300">Categories</a>
+                <a href="#" id="navArea" class="nav-link py-2 text-white hover:text-red-500 transition-colors duration-300">Area</a>
+                <a href="#" id="navIngredients" class="nav-link py-2 text-white hover:text-red-500 transition-colors duration-300">Ingredients</a>
+                <a href="#" id="navContact" class="nav-link py-2 text-white hover:text-red-500 transition-colors duration-300">Contact Us</a>
+            </div>
+            <div class="text-gray-400">
+                <div class="space-x-2 mb-2">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fas fa-globe"></i>
+                </div>
+                <p class="text-sm">Copyright © 2024 All Rights Reserved.</p>
+            </div>
+        </div>
+        <div class="w-[60px] bg-white h-full flex flex-col justify-between items-center py-6">
+            <img src="images/logo.png" alt="Logo" class="w-10 cursor-pointer"> <button id="navToggleBtn" class="text-navbg text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="flex flex-col space-y-2 text-navbg">
+                <i class="fas fa-globe"></i>
+                <i class="fas fa-share-alt"></i>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-8 pb-16 sm:pb-8 px-4 md:px-8 lg:px-12 ml-[60px] transition-all duration-700 ease-in-out">
+        <section id="searchSection" class="hidden mb-12">
+            <div class="container mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input type="text" id="searchByNameInput" class="w-full bg-transparent border border-gray-500 rounded p-3 text-white placeholder-gray-400 focus:outline-none focus:border-white" placeholder="Search By Name...">
+                    <input type="text" id="searchByFirstLetterInput" maxlength="1" class="w-full bg-transparent border border-gray-500 rounded p-3 text-white placeholder-gray-400 focus:outline-none focus:border-white" placeholder="Search By First Letter...">
+                </div>
+            </div>
+        </section>
+
+        <section id="mealGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            </section>
+
+        <section id="mealDetailSection" class="hidden mt-12">
+            </section>
+
+        <section id="categoriesSection" class="hidden mt-12">
+            <h2 class="text-3xl font-bold text-center mb-8">Categories</h2>
+            <div id="categoriesGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                </div>
+        </section>
+
+        <section id="areaSection" class="hidden mt-12">
+            <h2 class="text-3xl font-bold text-center mb-8">Areas</h2>
+            <div id="areaGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                </div>
+        </section>
+
+        <section id="ingredientsSection" class="hidden mt-12">
+            <h2 class="text-3xl font-bold text-center mb-8">Ingredients</h2>
+            <div id="ingredientsGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                </div>
+        </section>
+
+        <section id="contactUsSection" class="hidden mt-12 min-h-screen flex items-center justify-center">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-4xl font-bold mb-12">Contact Us</h2>
+                <form class="max-w-xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <input type="text" id="contactName" placeholder="Enter Your Name" class="w-full bg-transparent border border-gray-500 rounded p-3 text-white placeholder-gray-400 focus:outline-none focus:border-white">
+                        <input type="email" id="contactEmail" placeholder="Enter Your Email" class="w-full bg-transparent border border-gray-500 rounded p-3 text-white placeholder-gray-400 focus:outline-none focus:border-white">
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <input type="tel" id="contactPhone" placeholder="Enter Your Phone" class="w-full bg-transparent border border-gray-500 rounded p-3 text-white placeholder-gray-400 focus:outline-none focus:border-white">
+                        <input type="number" id="contactAge" placeholder="Enter Your Age" class="w-full bg-transparent border border-gray-500 rounded p-3 text-white placeholder-gray-400 focus:outline-none focus:border-white">
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <input type="password" id="contactPassword" placeholder="Enter Your Password" class="w-full bg-transparent border border-gray-500 rounded p-3 text-white placeholder-gray-400 focus:outline-none focus:border-white">
+                        <input type="password" id="contactRepassword" placeholder="Repassword" class="w-full bg-transparent border border-gray-500 rounded p-3 text-white placeholder-gray-400 focus:outline-none focus:border-white">
+                    </div>
+                    <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-300">Submit</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
